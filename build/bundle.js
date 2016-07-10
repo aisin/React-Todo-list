@@ -21130,11 +21130,13 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	// 创建演示数据
+
 	var todos = [{
-	    task: 'Make a React tutorial',
+	    task: 'Make a React tutorial.',
 	    isCompleted: false
 	}, {
-	    task: 'Go to see a movie with my girlfriend',
+	    task: 'Go to watch a movie with my girlfriend.',
 	    isCompleted: false
 	}];
 
@@ -21147,7 +21149,7 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(App).call(this, props));
 
 	        _this.state = {
-	            todos: todos //todos
+	            todos: todos
 	        };
 	        return _this;
 	    }
@@ -37817,7 +37819,11 @@
 
 	var _lodash2 = _interopRequireDefault(_lodash);
 
-	var _todoListItem = __webpack_require__(177);
+	var _todoCount = __webpack_require__(177);
+
+	var _todoCount2 = _interopRequireDefault(_todoCount);
+
+	var _todoListItem = __webpack_require__(178);
 
 	var _todoListItem2 = _interopRequireDefault(_todoListItem);
 
@@ -37840,9 +37846,12 @@
 
 	    _createClass(TodoList, [{
 	        key: 'renderTodoItems',
+
+
+	        // 渲染单条任务
+
 	        value: function renderTodoItems() {
 	            var props = _lodash2.default.omit(this.props, 'todos');
-
 	            return _lodash2.default.map(this.props.todos, function (todo, index) {
 	                return _react2.default.createElement(_todoListItem2.default, _extends({ key: index }, todo, props));
 	            });
@@ -37853,6 +37862,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'list form-horizontal' },
+	                _react2.default.createElement(_todoCount2.default, { todos: this.props.todos }),
 	                this.renderTodoItems()
 	            );
 	        }
@@ -37865,6 +37875,73 @@
 
 /***/ },
 /* 177 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _lodash = __webpack_require__(173);
+
+	var _lodash2 = _interopRequireDefault(_lodash);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var TodoCount = function (_React$Component) {
+	    _inherits(TodoCount, _React$Component);
+
+	    function TodoCount() {
+	        _classCallCheck(this, TodoCount);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(TodoCount).apply(this, arguments));
+	    }
+
+	    _createClass(TodoCount, [{
+	        key: 'renderTasksCount',
+
+
+	        // 获取任务数量
+
+	        value: function renderTasksCount() {
+	            var tasksCount = _lodash2.default.size(this.props.todos);
+	            return tasksCount == 1 ? '1 task:' : tasksCount + ' tasks:';
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var countStyle = {
+	                padding: '5px 10px'
+	            };
+
+	            return _react2.default.createElement(
+	                'p',
+	                { className: 'bg-info', style: countStyle },
+	                this.renderTasksCount()
+	            );
+	        }
+	    }]);
+
+	    return TodoCount;
+	}(_react2.default.Component);
+
+	exports.default = TodoCount;
+
+/***/ },
+/* 178 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -38017,7 +38094,7 @@
 	            );
 	        }
 
-	        //
+	        // 开启编辑后表单获取焦点
 
 	    }, {
 	        key: 'componentDidUpdate',

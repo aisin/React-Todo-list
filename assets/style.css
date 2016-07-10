@@ -9,10 +9,7 @@ body{
     text-align: center;
 }
 #todolist .create{
-    padding: 10px 0;
-}
-#todolist .list{
-    padding: 10px 0;
+    padding: 10px 0 0;
 }
 #todolist .list ul{
     list-style: none;

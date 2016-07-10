@@ -82,9 +82,9 @@ export default class TodoListItem extends React.Component {
     render() {
         return (
             <div className="form-group">
-                {this.renderTaskSection() }
-                {this.renderStateSection() }
-                {this.renderActionSection() }
+                { this.renderTaskSection() }
+                { this.renderStateSection() }
+                { this.renderActionSection() }
             </div>
         )
     }

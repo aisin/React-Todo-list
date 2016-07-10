@@ -11,11 +11,7 @@ export default class TodoCount extends React.Component {
     }
 
     render(){
-        const countStyle = {
-            padding: '5px 10px'
-        };
-
-        return <p className="bg-info" style={ countStyle }>{ this.renderTasksCount() }</p>
+        return <p className="bg-info" style={{ padding: '5px 10px' }}>{ this.renderTasksCount() }</p>
     }
     
 }

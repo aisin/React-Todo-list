@@ -37923,13 +37923,9 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var countStyle = {
-	                padding: '5px 10px'
-	            };
-
 	            return _react2.default.createElement(
 	                'p',
-	                { className: 'bg-info', style: countStyle },
+	                { className: 'bg-info', style: { padding: '5px 10px' } },
 	                this.renderTasksCount()
 	            );
 	        }
